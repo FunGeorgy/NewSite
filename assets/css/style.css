@@ -1,0 +1,451 @@
+/* 
+margin - отступ
+width - ширина
+height - высота
+text-align - выравнивание
+ */
+body {
+    /* внешний отступ */
+    margin: 0;
+    /* стандартный шрифт */
+    font-family: 'Montserrat', sans-serif;
+    /* стандартный размер шрифта */
+    font-size: 15px;
+    /* высота шрифта */
+    line-height: 1.6;
+    /* стандартный размер цвета шрифта */
+    color: #333;
+}
+
+
+/* для всех псевдо элементов */
+*,
+*::before,
+*::after {
+    /*свойства элементов изменяют размер бокса а не объектов в нем  */
+    box-sizing: border-box;
+}
+/* h - заголовки */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+hr{
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 40px 0;
+    border: 0;
+    background-color: #e5e5e5;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Intro */
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    /* картинка 
+    center - позиция по центру
+    no-repeat - убирает повторы
+    background-size: cover - чтобы занимала полностью экран;
+    */
+    background: url("../images/background_image.jpg") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.intro_inner {
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+.intro_title {
+    font-size: 150px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    color: #fff;
+    position: center;
+}
+
+.intro_title:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #fff;
+    margin: 60px auto;
+}
+
+.intro_suptitle {
+    margin-bottom: 20px;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 72px;
+    color: #fff;
+}
+
+
+/* Header
+Позития: абсолютная
+Дальше задаем позиции топа, лево, право - прижимаем ее к вверху.
+z-index - имитация 3д пространства объектов, чтобы они казались ближе */
+
+.header {
+    position: absolute;
+    padding-top: 30px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+}
+
+.header_logo {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+/* Элементы занимают крайние позиции (2 класса) */
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+/* Navigation */
+
+.nav {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* text-decoration: none убирает декорирование текста
+inline-block заставляет элементы выстраиваться в линию 
+vertical-align: top выравнивание верхнего края элемента по верху самого высокого элемента строки.
+nav_link:after - нижнее подчеркивание*/
+
+.nav_link {
+    font-weight: 500;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    transition: color .1s linear;
+}
+.nav_link_img img{
+    flex-direction: line;
+    width: 14px;
+    height: 14px;
+    margin: 0 10px;
+    /* картинка 
+    center - позиция по центру
+    no-repeat - убирает повторы
+    background-size: cover - чтобы занимала полностью экран;
+    */
+    
+}
+.nav_link::after {
+    content: ""; 
+    display: block;
+    width: 100%;
+    height: 3px;
+    opacity: 0;
+    background-color: #fce38a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity .1s linear;
+}
+.nav_link_img::after
+{
+    content: ""; 
+    display: block;
+    width: 14px;
+    height: 3px;
+    opacity: 0;
+    background-color: #fce38a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    transition: opacity .1s linear;
+}
+
+/* hover показывает, что происходит с объектом после того, как на него навелись */
+.nav_link:hover {
+    color: #fce38a;
+}
+
+.nav_link:hover::after, .nav_link.active::after {
+    opacity: 1;
+}
+.nav_link.active
+{
+    color: #fce38a;
+}
+
+/* Button */
+
+.btn {
+    display: inline-block; 
+    vertical-align: top;
+    padding: 10px 15px;
+    border: 3px solid #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: background .1s linear, color .1s linear;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color:#333;
+} 
+
+/* Slider */
+
+.slider_intro {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.slider_inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider_item {
+    width: 23%;
+    padding: 20px 0;
+    position: relative;
+    border-top: 3px solid #fff;
+    opacity: .6;
+    font-size: 18px;
+    color: #fff;
+    /* делает все большими буквами */
+    text-transform: uppercase;
+}
+
+.slider_item.active {
+    opacity: 1;
+}
+.slider_item.active ::before
+{
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background-color: #f38181;
+    position: absolute;
+    top: -3px;
+    left: 0;
+    z-index: 1;
+}
+.slider_number {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Section */
+
+.section {
+    padding: 80px 0;
+}
+
+.section--devices
+{
+    background: url("../images/device/background.jpg")
+    center no-repeat;
+    padding-bottom: 0;
+    -webkit-background-size: cover;
+    background-size: cover;
+
+}
+.section_header {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 50px;
+    text-align: center;    
+}
+
+.section_suptitle { 
+    font-size: 24px;
+    color: #333;
+    font-family: 'Kaushan Script', cursive;
+}
+.section_title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+}
+.section_title::after{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 30px auto;
+    background-color: #f38181;
+}
+
+/* About */
+
+.about {
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.about_item
+{
+    width: 380px;
+    background-color: #95e1d3;
+    position: relative;
+}
+
+.about_item:hover .about_text{
+    opacity: 1;
+}
+.about_item:hover .about_img {
+    transform: translate3d(-10px, -10px, 0);
+}
+.about_item:hover .about_img img{
+opacity: .1;  
+}
+
+.about_img{
+    /* настройка градиента */
+    background: linear-gradient(to bottom, #f38181,#fce38a) ;
+    transition: transform .2s linear;
+}
+
+.about_img img {
+    display: block;
+    transition: opacity .1s linear;
+}
+
+.about_text{
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left:0;
+    z-index: 2;
+    transform: translate3d(0, -50%, 0);
+    transition: opacity .2s linear;
+
+}
+
+/* Statistics */
+
+.statistics{
+    background-color: #95e1d3;
+}
+
+.stat {
+    display: flex;
+}
+
+.stat_item{
+    flex: 1 1 0;
+    padding: 70px 25px;
+    border-left: 1px solid #b5eae0;
+    text-align: center;
+    color: #fff;
+
+}
+
+.stat_count{
+    margin-bottom: 10px;
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat_text {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.stat_item:last-child{
+    border-right: 1px solid #b5eae0;
+}
+
+/* Services */
+
+.services{
+    display: flex;
+}
+
+.services_item{
+    flex: 1 1 0;
+    padding-left: 85px;
+    padding-right: 35px;
+    position: relative;
+}
+
+.services_icon{
+    position: absolute;
+    top: 0;
+    left: 25px;
+    z-index: 1;
+}
+
+.services_title{
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.services_text{
+    font-size: 15px;
+    color: #333;
+}
+
+/* Devices */
+
+.devices{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.devices_item{
+    display: block;
+}
+
+.devices_item--iphone{
+    position: absolute;
+    bottom: -80px;
+    right: 0;
+    z-index: 1;
+}
