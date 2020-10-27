@@ -280,7 +280,12 @@ nav_link:after - нижнее подчеркивание*/
     padding-bottom: 0;
     -webkit-background-size: cover;
     background-size: cover;
+    margin-bottom: 40px;
 
+}
+
+.section--gray{
+background-color: #f8f8f8;
 }
 .section_header {
     width: 100%;
@@ -448,4 +453,161 @@ opacity: .1;
     bottom: -80px;
     right: 0;
     z-index: 1;
+}
+
+/* WeDo */
+
+.wedo{
+    display: flex;
+}
+
+.wedo_item{
+    width: 50%;
+}
+
+.wedo_image{
+    width: 570px;
+    height: 380px;
+}
+
+/* Accordion */
+
+.accordion_item{
+    /* Граница подчеркивания */
+    border: 1px solid #e5e5e5;
+    margin-bottom: 10px;
+}
+
+.accordion_item.active .accordion_content{
+    display: block;
+}
+
+.accordion_item.active
+.accordion_header::after{
+    transform: translateY(-50%) 
+    rotate(-45deg);
+    margin-top: 5px;
+}
+
+.accordion_item.active
+.accordion_header{
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion_header{
+    padding: 15px 20px 15px 65px;
+    position: relative;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.accordion_header::after{
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    z-index: 1;
+    transform: translateY(-50%)
+    rotate(135deg);
+}
+.accordion_icon{
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.accordion_content{
+    display: none;
+    padding: 15px 20px;
+    font-size: 15px;
+    color: #999;
+    font-style: italic;
+    font-weight: 300;
+}
+
+.accordion_title{
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Reviews */
+
+.review{
+    padding: 0 110px;
+    position: relative;
+}
+
+.review_item{
+    position: relative;
+    padding-left: 205px;
+
+}
+
+.review_icon{
+    /* border: 2px solid #95e1d3; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.review_text{
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 300;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.review_author{
+    font-size: 22px;
+    color: #000;
+    font-family: 'Kaushan Script';
+}
+
+.review_author::before{
+    content: "";
+    display: inline-block;
+    width: 60px;
+    height: 3px;
+    margin-right: 10px;
+    vertical-align: middle;
+    background-color: #f38181;
+}
+
+.review_btn {
+    font-size: 0;
+    color: transparent;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.review_btn::after {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-top: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    
+}
+
+.review_btn--prev {
+    left: 0;
+    transform: rotate(-135deg)
+}
+
+.review_btn--next{
+    right: 0;
+    transform: rotate(45deg)
 }
